@@ -1,45 +1,144 @@
-# Library Management System (student project)
+# Library Management System
 
-Project Title
-library-management-system — a Java project to practice OOP and basic application flow.
+> A console-based Java application demonstrating OOP principles, file I/O, and data persistence for managing library operations.
 
-Overview
-- Learning goal: Implement core OOP concepts (classes, methods) and practice building a small application in Java.
-- What it does: Provides basic library management features (e.g., add books, list books, issue/return logic). The exact features depend on the code in the repo.
+## 📚 Overview
 
-Key Features
-- Basic data structures for books and users (classes in Java)
-- CRUD-like operations for book records
-- Console-based or simple UI (depending on the code in the repository)
+A fully functional library management system built in Java that manages books, users, and transactions. The application features a menu-driven console interface and file-based persistence to save and load data between sessions.
 
-Tech Stack (only what exists in the repo)
-- Java (source code)
+**Learning Focus**: Object-oriented programming, file I/O, collections framework, and application architecture
 
-How to run locally
-1. Clone the repo:
+## ✨ Key Features
+
+- **Book Management**
+  - Add books with title, author, ISBN, and genre
+  - Search books by title, author, or ISBN (case-insensitive)
+  - View all books with availability status
+  - Track book availability in real-time
+
+- **User Management**
+  - Register users with unique ID, name, and contact information
+  - Track borrowed books per user
+  - View all registered users
+
+- **Transaction System**
+  - Borrow books with transaction tracking
+  - Return books with automatic status updates
+  - View complete transaction history with timestamps
+  - Validate user and book existence before transactions
+
+- **Data Persistence**
+  - Automatic save/load functionality using file-based storage
+  - Preserves books, users, transactions, and borrow status
+  - Data persisted to `library_data.txt`
+
+## 🛠️ Tech Stack
+
+- **Language**: Java (console application)
+- **Storage**: File-based persistence (text file)
+- **Data Structures**: ArrayList for collections management
+
+## 📂 Project Structure
+
+```
+library-management-system/
+├── Main.java          # Application entry point with menu-driven UI
+├── Library.java       # Core library logic and operations
+├── Book.java          # Book entity with properties and methods
+├── User.java          # User entity with borrowed books tracking
+├── Transaction.java   # Transaction records with borrow/return dates
+├── Storage.java       # File I/O for data persistence
+└── library_data.txt   # Auto-generated data file (created on first save)
+```
+
+## 🚀 How to Run
+
+### Prerequisites
+
+- Java Development Kit (JDK) 8 or higher
+- Terminal/Command Prompt
+
+### Steps
+
+1. **Clone the repository**
+
+   ```bash
    git clone https://github.com/Raj150456/library-management-system.git
-2. Inspect the repo for build files:
-   - If there is a build tool (Maven/Gradle), use it:
-     mvn clean install
-     # or
-     gradle run
-   - If plain Java source files:
-     Find the main class and compile:
-     javac -d out src/**/*.java
-     java -cp out package.MainClass
-   - Or open the project in an IDE (Eclipse/IntelliJ) and run the main class.
-3. Follow any additional instructions in the repository (check for a README or run scripts).
+   cd library-management-system
+   ```
 
-What I learned
-- Applying OOP design and organizing classes and packages in Java
-- The compile-run cycle and using basic build tools or IDEs
-- How to think about state (books, loans) and simple data modeling
+2. **Compile the Java files**
 
-Future improvements
-- Add persistent storage (e.g., simple file-based or SQLite via JDBC)
-- Add a simple web UI or REST API (JS/HTML frontend + Java backend) to demonstrate full-stack learning
-- Add validation and tests for the core logic
+   ```bash
+   javac *.java
+   ```
 
-Notes for interview
-- Be ready to describe 1–2 classes you implemented and how they interact (Book, User, Loan).
-- Explain what you'd change if you had more time (persistence, tests, separation of concerns).
+3. **Run the application**
+
+   ```bash
+   java Main
+   ```
+
+4. **Using the application**
+   - The menu will display 9 options
+   - Enter the number corresponding to your desired action
+   - Follow the prompts to add books, register users, borrow/return books, etc.
+   - Select option 9 to save data and exit
+
+### Alternative: Using an IDE
+
+- Open the project folder in Eclipse, IntelliJ IDEA, or VS Code
+- Run `Main.java` directly from the IDE
+
+## 💡 What I Learned
+
+- **OOP Principles**: Implemented encapsulation, abstraction, and separation of concerns across 5 distinct classes
+- **Collections Framework**: Used `ArrayList` for dynamic data management
+- **File I/O**: Implemented complete save/load functionality using `BufferedReader` and `BufferedWriter`
+- **Data Validation**: Added checks for user existence, book availability, and transaction integrity
+- **Application Flow**: Designed a menu-driven interface with proper input handling and error messages
+
+## 🔄 Future Enhancements
+
+- [ ] Add database integration (SQLite/MySQL) to replace file-based storage
+- [ ] Implement due dates and late fee calculations
+- [ ] Add book reservation system for unavailable books
+- [ ] Create a graphical user interface (GUI) using JavaFX or Swing
+- [ ] Add unit tests using JUnit for core functionality
+- [ ] Implement user authentication and role-based access (admin/member)
+- [ ] Add data validation and exception handling improvements
+- [ ] Generate reports (most borrowed books, active users, etc.)
+
+## 📝 Interview Talking Points
+
+**Class Design & Interactions**:
+
+- `Book` class encapsulates book properties (title, author, ISBN, genre) and availability status
+- `User` class maintains user details and tracks borrowed books using ArrayList
+- `Library` class acts as the central controller, managing all books, users, and transactions
+- `Transaction` class records borrow/return events with timestamps
+- `Storage` class handles serialization/deserialization to persist data
+
+**Key Implementation Details**:
+
+- Used helper methods (`findUser`, `findBook`, `findActiveTransaction`) for clean code organization
+- Implemented "silent" methods in Library class to avoid duplicate messages during data loading
+- Designed a structured file format with section markers (BOOKS:, USERS:, TRANSACTIONS:) for reliable parsing
+
+**What I'd Improve**:
+
+- Replace text file storage with a relational database for better scalability
+- Add comprehensive input validation and exception handling
+- Implement unit tests to ensure reliability
+- Refactor to use design patterns (e.g., Repository pattern for data access)
+- Add logging framework instead of console print statements
+
+## 📄 License
+
+This is a student learning project created for educational purposes.
+
+---
+
+**Author**: Raj  
+**GitHub**: [Raj150456](https://github.com/Raj150456)  
+**Project URL**: [library-management-system](https://github.com/Raj150456/library-management-system)
